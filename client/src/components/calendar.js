@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
+import { alpha } from '@material-ui/core/styles'; 
 import { ViewState } from '@devexpress/dx-react-scheduler';
 import { v4 as uuidv4 } from 'uuid';
 
