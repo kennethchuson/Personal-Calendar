@@ -10,5 +10,6 @@ Link: https://devexpress.github.io/devextreme-reactive/react/scheduler/docs/guid
 For Styling UI library
 
 1.) "npm install @material-ui/core"
-
 Link: https://www.npmjs.com/package/@material-ui/core
+
+2.) "npm install styled-components"
