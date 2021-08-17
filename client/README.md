@@ -16,3 +16,5 @@ Link: https://www.npmjs.com/package/@material-ui/core
 
 3.) "npm i react-dark-mode-toggle"
 
+4.) "npm install hamburger-react"
+
