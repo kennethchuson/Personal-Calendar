@@ -26,6 +26,7 @@ import {
 
       };
 
+
       this.currentDateChange = (currentDate) => { this.setState({ currentDate }); };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,23 +44,6 @@ import {
         return convertedDate;
     }
 
-    convertDate_to_hour(dataAsString) {
-      const firsPartOfStartDate = dataAsString.split("T");
-      const dateOfStartDate = firsPartOfStartDate[0].split("-");
-      const hoursAndMin = firsPartOfStartDate[1].split(":");
-      const [year, month,day]=dateOfStartDate;
-      const [hour,min]=hoursAndMin;
-      return hour; 
-    }
-
-    convertDate_to_minute(dataAsString) {
-      const firsPartOfStartDate = dataAsString.split("T");
-      const dateOfStartDate = firsPartOfStartDate[0].split("-");
-      const hoursAndMin = firsPartOfStartDate[1].split(":");
-      const [year, month,day]=dateOfStartDate;
-      const [hour,min]=hoursAndMin;
-      return min; 
-    }
 
     handleChange(event) {
   
@@ -133,7 +117,7 @@ import {
       
       const { data, currentDate } = this.state;
 
-      
+  
   
       return (
         <div className="setUp-Schedule-wrapper">
@@ -142,7 +126,7 @@ import {
                 <Paper>
                 <Scheduler data={data} height={660}>
                     <ViewState currentDate={currentDate} onCurrentDateChange={this.currentDateChange}/>
-                    <WeekView startDayHour={6} endDayHour={24}/>
+                    <WeekView startDayHour={this.props.startTime} endDayHour={this.props.endTime}/>
                     <Toolbar />
                     <DateNavigator />
                     <TodayButton />

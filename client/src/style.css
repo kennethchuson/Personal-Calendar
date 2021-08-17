@@ -1,7 +1,10 @@
+
+/* App */
 .App-title {
     text-align:center;
 }
 
+/* Settings */
 .settings-wrapper {
     background-color: rgb(241, 200, 79);
     border-radius: 10px;
@@ -11,4 +14,9 @@
     color: black; 
     text-align:center;
     padding-top: 1.5%;
+}
+
+
+.settings-text {
+    color: black; 
 }
