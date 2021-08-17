@@ -12,4 +12,7 @@ For Styling UI library
 1.) "npm install @material-ui/core"
 Link: https://www.npmjs.com/package/@material-ui/core
 
-2.) "npm install styled-components"
+2.) "npm i styled-components"
+
+3.) "npm i react-dark-mode-toggle"
+
