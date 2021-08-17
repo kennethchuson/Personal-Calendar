@@ -66,7 +66,7 @@ const App = () => {
                                 <input type="number" min="6" max="30" onChange={end_time_func}></input>
                            </div>
                            <div>
-                               <button onClick={handleSubmit}>DONE</button>
+                               <button className="settings-button-one" onClick={handleSubmit}>DONE</button>
                            </div>
                        </div> : 
                        null 

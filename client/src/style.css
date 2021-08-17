@@ -4,6 +4,17 @@
     text-align:center;
 }
 
+input {
+    padding:10px;
+    border:0;
+    box-shadow:0 0 4px 1px rgb(161, 161, 161);
+    border-radius: 10px; 
+    padding: 10px; 
+    outline:none;
+    margin: 5px; 
+
+}
+
 /* Settings */
 .settings-wrapper {
     background-color: rgb(241, 200, 79);
@@ -19,4 +30,31 @@
 
 .settings-text {
     color: black; 
+}
+
+.calendar_button_one {
+    color: white; 
+    background-color: rgb(42, 173, 42); 
+    border: none; 
+    padding: 10px; 
+    border-radius: 10px;
+    margin: 5px; 
+
+}
+
+.calendar_button_one:hover {
+    background-color: rgb(76, 201, 76); 
+}
+
+.settings-button-one {
+    color: white; 
+    background-color: rgb(42, 145, 173); 
+    border: none; 
+    padding: 7px; 
+    border-radius: 10px;
+    margin: 5px; 
+}
+
+.settings-button-one:hover {
+    background-color: rgb(78, 186, 215); 
 }

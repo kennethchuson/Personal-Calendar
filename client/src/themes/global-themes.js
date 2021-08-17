@@ -6,5 +6,6 @@ export const GlobalThemes = createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: all 0.50s linear;
+    font-family: Arial, sans-serif;
   }
   `
