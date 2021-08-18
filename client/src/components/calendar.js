@@ -141,6 +141,9 @@ import {
                 <input placeholder="Start Date" className="calendar_input_two" name="startDate" value={this.state.startDate} onChange={this.handleChange} type="datetime-local"/>
                 <input placeholder="End Date" className="calendar_input_three" name="endDate" value={this.state.endDate} onChange={this.handleChange} type="datetime-local"/>
                 <input placeholder="Location" className="calendar_input_four" name="location" value={this.state.location} onChange={this.handleChange} type="text"/>
+                {!this.props.descriptionToggle?
+                  <textarea placeholder="Description" className="calendar_input_five" name="description" type="text"/> : null
+                }
               </div>
               <div className="calendar_buttons">
                 <button className="calendar_button_one" onClick={this.handleSubmit}>Submit</button>

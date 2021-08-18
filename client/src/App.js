@@ -27,6 +27,7 @@ const App = () => {
     const [end_time, set_end_time] = useState(0); 
     const [get_start_time, set_get_start_time] = useState(6);
     const [get_end_time, set_get_end_time] = useState(24);  
+    const [description_access, set_description_access] = useState(true); 
 
     
 
@@ -36,6 +37,10 @@ const App = () => {
 
     const end_time_func = (e) => {
         set_end_time(e.target.value); 
+    }
+
+    const description_access_func = (e) => {
+        set_description_access(!e.target.checked); 
     }
 
 
@@ -58,20 +63,30 @@ const App = () => {
                     <Hamburger toggled={settings} toggle={setShowSettings} />
                     { settings? 
                         <div className="settings-wrapper">
-                           <h3 className="settings-title">Settings</h3>
-                            <div className="settings-container">
-                                <p className="settings-text">start time</p>
-                                <input type="number" min="6" max="30" onChange={start_time_func}></input>
-                                <p className="settings-text">end time</p>
-                                <input type="number" min="6" max="30" onChange={end_time_func}></input>
-                           </div>
-                           <div>
+                            <h3 className="settings-title">Settings</h3>
+                                <div className="settings-parentContainer">
+                                    <div className="settings-container">
+                                        <p className="settings-text">start time</p>
+                                        <input type="number" min="6" max="30" onChange={start_time_func}></input>
+                                        <p className="settings-text">end time</p>
+                                        <input type="number" min="6" max="30" onChange={end_time_func}></input>
+                                    </div>
+                                    <div className="settings-container">
+                                        <p className="settings-text">Access Description</p> 
+                                        <label className="switch_one">
+                                            <input onClick={description_access_func} className="settings-toggle-one" type="checkbox"/>
+                                            <span className="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            <div>
                                <button className="settings-button-one" onClick={handleSubmit}>DONE</button>
-                           </div>
-                       </div> : 
+                            </div>
+                        </div>
+                        : 
                        null 
                        }
-                    <Calendar startTime={get_start_time} endTime={get_end_time}/>
+                    <Calendar startTime={get_start_time} endTime={get_end_time} descriptionToggle={description_access}/>
                 </div>
             </>
         </ThemeProvider>
