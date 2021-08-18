@@ -79,14 +79,13 @@ import {
 
   
         const id =uuidv4();
-        const {title, startDate, endDate, location } = this.state;
+        const {title, startDate, endDate, location, description} = this.state;
 
-        console.log(title); 
 
         if (this.errorHandling(title, startDate, endDate, location)) {
           const finalStartDate= this.convertDate_to_Object(startDate);
           const finalEndDate= this.convertDate_to_Object(endDate);
-          let scheduleData = { title: this.state.title, startDate: finalStartDate, endDate: finalEndDate, location: this.state.location,id };
+          let scheduleData = { title: this.state.title, startDate: finalStartDate, endDate: finalEndDate, location: this.state.location, description: this.state.description, id };
   
           this.setState(prevState => ({
               data: [ ...prevState.data, scheduleData ] 
@@ -142,7 +141,7 @@ import {
                 <input placeholder="End Date" className="calendar_input_three" name="endDate" value={this.state.endDate} onChange={this.handleChange} type="datetime-local"/>
                 <input placeholder="Location" className="calendar_input_four" name="location" value={this.state.location} onChange={this.handleChange} type="text"/>
                 {!this.props.descriptionToggle?
-                  <textarea placeholder="Description" className="calendar_input_five" name="description" type="text"/> : null
+                  <textarea placeholder="Description" className="calendar_input_five" name="description" value={this.state.description} onChange={this.handleChange} type="text"/> : null
                 }
               </div>
               <div className="calendar_buttons">
@@ -154,7 +153,12 @@ import {
                   <div></div> : 
                   this.state.data.map((datas) => 
                     <div className="listsMeetingNotes">
-                      <li key={datas.id} className="itemMeetingNotes">{datas.title} <button className="listsMeetingsNotes_button" onClick={() => this.deleteHandle(datas.id)}>Delete</button></li>
+                      <li key={datas.id} className="itemMeetingNotes">
+                        {datas.title} 
+                        <br/>
+                        <h4> - </h4>{datas.description}
+                        <button className="listsMeetingsNotes_button" onClick={() => this.deleteHandle(datas.id)}>Delete</button>
+                      </li>
                     </div>
                 )}
               </div>
