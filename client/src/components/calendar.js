@@ -24,7 +24,7 @@ import {
       this.state = {
         data: [],
         currentDate: new Date().toJSON().slice(0,10).replace(/-/g,'-'),
-
+        checkHoverNote: false
       };
 
 
@@ -112,10 +112,18 @@ import {
         
     }
 
+    hoverMeetingNote() {
+      
+
+          
+      console.log(this.state.currentDate); 
+      
+    }
+
   
     render() {
       
-      const { data, currentDate } = this.state;
+      const { data, currentDate, checkHoverNote } = this.state;
 
   
   

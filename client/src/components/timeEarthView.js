@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import ReactDOM from 'react-dom'
 import React, { useRef, useState, Suspense } from 'react'
 import { Canvas, useLoader, useFrame } from 'react-three-fiber'
+import { OrbitControls, Stars } from '@react-three/drei'; 
 
 
 import earthImg from '../texture/earth.jpg'; 
@@ -54,15 +55,23 @@ const TimeEarthView = (props) => {
     return (
         <div>
             <div className="container-timeEarthView">
-                <div className="canvasEarthView">
-                <Canvas>
-                    <Suspense fallback={null}>
-                    {!props.togglingView? (!day? <SphereDay/> : <SphereNight/>) : null}
-                    
-                    </Suspense>
-                </Canvas>
-                {!props.togglingView? <button onClick={day_func}>O</button> : null}
-                </div>
+              {!props.togglingView? (
+                 <div className="canvasEarthView">
+                
+                 <Canvas>
+                     <OrbitControls />
+                     <Stars />
+                     <ambientLight intensity={0.5} />
+                     <spotLight position={[10, 15, 10]} angle={3.5} />     
+                     <Suspense fallback={null}>
+                     {!day? <SphereDay/> : <SphereNight/>}
+                     
+                     </Suspense>
+                 </Canvas>
+                 <button onClick={day_func}>O</button>
+                 </div>
+
+              ) : null}
             </div>
         </div>
     )
