@@ -28,7 +28,7 @@ const App = () => {
     const [get_start_time, set_get_start_time] = useState(6);
     const [get_end_time, set_get_end_time] = useState(24);  
     const [description_access, set_description_access] = useState(true); 
-
+    const [earth_access, set_earth_access] = useState(true); 
     
 
     const start_time_func = (e) => {
@@ -41,6 +41,10 @@ const App = () => {
 
     const description_access_func = (e) => {
         set_description_access(!e.target.checked); 
+    }
+
+    const earth_access_func = (e) => {
+        set_earth_access(!e.target.checked); 
     }
 
 
@@ -77,6 +81,12 @@ const App = () => {
                                             <input onClick={description_access_func} className="settings-toggle-one" type="checkbox"/>
                                             <span className="slider"></span>
                                         </label>
+                                        <br></br>
+                                        <p className="settings-text">Access Earth View</p> 
+                                        <label className="switch_one">
+                                            <input onClick={earth_access_func} className="settings-toggle-one" type="checkbox"/>
+                                            <span className="slider"></span>
+                                        </label>
                                     </div>
                                 </div>
                             <div>
@@ -86,7 +96,7 @@ const App = () => {
                         : 
                        null 
                        }
-                    <Calendar startTime={get_start_time} endTime={get_end_time} descriptionToggle={description_access}/>
+                    <Calendar startTime={get_start_time} endTime={get_end_time} descriptionToggle={description_access} earthToggle={earth_access}/>
                 </div>
             </>
         </ThemeProvider>

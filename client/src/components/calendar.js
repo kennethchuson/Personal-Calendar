@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import { alpha } from '@material-ui/core/styles'; 
 import { ViewState } from '@devexpress/dx-react-scheduler';
 import { v4 as uuidv4 } from 'uuid';
+import EarthView from '../components/timeEarthView.js'; 
 
 import {
     Scheduler,
@@ -147,20 +148,27 @@ import {
               <div className="calendar_buttons">
                 <button className="calendar_button_one" onClick={this.handleSubmit}>Submit</button>
               </div>
-              <h3>Planning Notes</h3>
-              <div className="listsMeetingNotes_container">
-                {this.state.data==null?
-                  <div></div> : 
-                  this.state.data.map((datas) => 
-                    <div className="listsMeetingNotes">
-                      <li key={datas.id} className="itemMeetingNotes">
-                        {datas.title} 
-                        <br/>
-                        <h4> - </h4>{datas.description}
-                        <button className="listsMeetingsNotes_button" onClick={() => this.deleteHandle(datas.id)}>Delete</button>
-                      </li>
+              <div className="side-note-parent">
+                <div className="side-note-one">
+                  <h3>Planning Notes</h3>
+                    <div className="listsMeetingNotes_container">
+                      {this.state.data==null?
+                        <div></div> : 
+                        this.state.data.map((datas) => 
+                          <div className="listsMeetingNotes">
+                            <li key={datas.id} className="itemMeetingNotes">
+                              {datas.title} 
+                              <br/>
+                              <h4> - </h4>{datas.description}
+                              <button className="listsMeetingsNotes_button" onClick={() => this.deleteHandle(datas.id)}>Delete</button>
+                            </li>
+                          </div>
+                      )}
                     </div>
-                )}
+                </div>
+                <div className="side-note-two">
+                    <EarthView togglingView={this.props.earthToggle}/>
+                </div>
               </div>
             </div>
         </div>
